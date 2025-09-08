@@ -25,5 +25,6 @@ async def get_db_session():
         finally:
             await session.close()
 
+
 class Base(DeclarativeBase):
     pass

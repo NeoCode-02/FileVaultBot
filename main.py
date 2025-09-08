@@ -8,6 +8,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+
 async def main():
     """Main entry point"""
     logger.info("Starting File Keeper Bot...")
@@ -18,6 +19,7 @@ async def main():
     except Exception as e:
         logger.error(f"Bot crashed with error: {e}")
         raise
+
 
 if __name__ == "__main__":
     asyncio.run(main())

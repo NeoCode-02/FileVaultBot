@@ -8,10 +8,10 @@ async def get_or_create_user(session: AsyncSession, telegram_user) -> User:
     result = await session.execute(
         select(User)
         .where(User.telegram_id == telegram_user.id)
-        .options(selectinload(User.files)) 
+        .options(selectinload(User.files))
     )
     db_user = result.scalar_one_or_none()
-    
+
     if db_user is None:
         db_user = User(
             telegram_id=telegram_user.id,
@@ -28,5 +28,5 @@ async def get_or_create_user(session: AsyncSession, telegram_user) -> User:
             .options(selectinload(User.files))
         )
         db_user = result.scalar_one_or_none()
-    
+
     return db_user
